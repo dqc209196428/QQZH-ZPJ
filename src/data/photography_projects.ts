@@ -5,7 +5,7 @@ export const PHOTOGRAPHY_PROJECTS: Project[] = [
     id: 'd5-copy',
     common: {
       category: Category.VIDEO,
-      image: '/images/20260416.jpg',
+      image: '/images/20260416.webp',
     },
     zh: {
       title: 'LJA楼道尽头',

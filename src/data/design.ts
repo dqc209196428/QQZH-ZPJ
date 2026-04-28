@@ -5,7 +5,7 @@ export const DESIGN_DATA: Project[] = [
     id: 'photo-copy',
     common: {
       category: 'Graphics & UI',
-      image: '/images/YGSZY.jpg',
+      image: '/images/YGSZY.webp',
     },
     zh: {
       title: '菜单四折页作业',

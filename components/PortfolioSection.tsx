@@ -209,25 +209,14 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
                   {/* Image container */}
                   <div className="w-full aspect-[4/3] bg-gray-100 dark:bg-gray-800 mb-6 overflow-hidden rounded-2xl relative shadow-none border border-transparent transition-all duration-500 group-hover:shadow-2xl dark:group-hover:shadow-none dark:group-hover:border-white/20 transform-gpu">
                     {project.image && !project.image.includes('picsum') ? (
-                        <div className="relative w-full h-full overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 animate-pulse"></div>
-                          <img 
-                            src={project.image} 
-                            alt={project.title} 
-                            loading="lazy"
-                            decoding="async"
-                            referrerPolicy="no-referrer"
-                            className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105 will-change-transform opacity-0"
-                            onLoad={(e) => {
-                              (e.target as HTMLImageElement).classList.remove('opacity-0');
-                              const parent = (e.target as HTMLImageElement).parentElement;
-                              if (parent) {
-                                const placeholder = parent.querySelector('.animate-pulse');
-                                if (placeholder) placeholder.classList.add('opacity-0');
-                              }
-                            }}
-                          />
-                        </div>
+                        <img 
+                          src={project.image} 
+                          alt={project.title} 
+                          loading="lazy"
+                          decoding="async"
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105 will-change-transform"
+                        />
                     ) : project.bilibiliId ? (
                         <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 group-hover:bg-gray-200 dark:group-hover:bg-gray-700 transition-colors duration-300">
                             <div className="flex flex-col items-center gap-4">
