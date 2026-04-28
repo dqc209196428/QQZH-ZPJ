@@ -11,6 +11,15 @@ interface PortfolioSectionProps {
   externalFilter?: string; // Controlled by parent if needed
 }
 
+// Get absolute URL for assets (handles GitHub Pages base path)
+const resolveAssetPath = (path: string) => {
+  if (path.startsWith('http')) return path;
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  // Encode URI to handle spaces and special characters
+  return encodeURI(`${base}${normalizedPath}`);
+};
+
 const GalleryImage = ({ src, alt, onClick }: { src: string, alt: string, onClick: (e: React.MouseEvent) => void }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -25,7 +34,7 @@ const GalleryImage = ({ src, alt, onClick }: { src: string, alt: string, onClick
         </div>
       )}
       <img 
-        src={src} 
+        src={resolveAssetPath(src)} 
         alt={alt} 
         loading="lazy"
         decoding="async"
@@ -210,7 +219,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
                   <div className="w-full aspect-[4/3] bg-gray-100 dark:bg-gray-800 mb-6 overflow-hidden rounded-2xl relative shadow-none border border-transparent transition-all duration-500 group-hover:shadow-2xl dark:group-hover:shadow-none dark:group-hover:border-white/20 transform-gpu">
                     {project.image && !project.image.includes('picsum') ? (
                         <img 
-                          src={project.image} 
+                          src={resolveAssetPath(project.image)} 
                           alt={project.title} 
                           loading="lazy"
                           decoding="async"
@@ -437,10 +446,10 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
                            <>
                               {displayProject.image && !displayProject.image.includes('picsum') ? (
                                   <img 
-                                    src={displayProject.image} 
+                                    src={resolveAssetPath(displayProject.image)} 
                                     alt={displayProject.title} 
                                     referrerPolicy="no-referrer"
-                                    className="w-full h-full object-cover object-center" 
+                                    className="w-full h-auto object-contain" 
                                   />
                               ) : (
                                   <div className="w-full h-full flex items-center justify-center bg-gray-300 dark:bg-gray-800">
