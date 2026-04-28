@@ -5,7 +5,7 @@ import { Sidebar } from './components/Sidebar';
 import { HeroSection } from './components/HeroSection';
 import { PortfolioSection } from './components/PortfolioSection';
 import { ArticleSection } from './components/ArticleSection';
-import { TimelineSection } from './components/TimelineSection';
+
 import { MusicPlayer } from './components/MusicPlayer';
 import { Mail, MapPin, RotateCcw, MessageSquare, Instagram, Youtube, FileText, Aperture, Github } from 'lucide-react';
 import { NAV_ITEMS } from './src/data/navigation';
@@ -400,12 +400,6 @@ function App() {
                </p>
              </div>
              <ArticleSection language={language} />
-          </div>
-        );
-      case 'about':
-        return (
-          <div className="pt-20 w-full max-w-[96vw] mx-auto">
-            <TimelineSection language={language} />
           </div>
         );
       case 'contact':
