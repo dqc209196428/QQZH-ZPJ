@@ -4,7 +4,7 @@ export const PHOTOGRAPHY_PROJECTS: Project[] = [
   {
     id: 'd5-copy',
     common: {
-      category: Category.VIDEO,
+      category: Category.PHOTO,
       image: '/images/20260416.webp',
     },
     zh: {
@@ -18,14 +18,14 @@ export const PHOTOGRAPHY_PROJECTS: Project[] = [
       roleDetail: "2026-04-16"
     },
     en: {
-      title: 'Infographic Design for Movie Information | Undergraduate Thesis',
-      subtitle: 'Visual Design System',
-      description: 'The infographic design project based on Cinemetrics, which mainly focuses on the content analysis and visualization of movies.',
-      role: 'ALL',
-      tags: ['Infographic', 'Cinemetrics', 'Figma'],
-      awards: ["None"],
-      concept: "Antique kraft paper design, new Chinese-style design.",
-      roleDetail: "Cover everything."
+      title: 'LJA Corridor End',
+      subtitle: 'Snapshot',
+      description: 'Taken on a windy evening.',
+      role: '',
+      tags: [],
+      awards: ["School"],
+      concept: "",
+      roleDetail: "2026-04-16"
     }
   }
 ];

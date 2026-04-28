@@ -1,10 +1,10 @@
-import { Project } from '../../types';
+import { Project, Category } from '../../types';
 
 export const DEV_DATA: Project[] = [
   {
     id: 'dev1',
     common: {
-      category: 'Development',
+      category: Category.DEV,
       image: '', // Placeholder
       icon: 'message-circle',
       websiteUrl: 'https://wechat-msganalysis-krgkfhfdcxwmtwst4jc4bw.streamlit.app/',
@@ -30,7 +30,7 @@ export const DEV_DATA: Project[] = [
   {
     id: 'dev2',
     common: {
-      category: 'Development',
+      category: Category.DEV,
       image: '', // Placeholder
       icon: 'id-card',
       websiteUrl: 'https://lun3cy.github.io/LUNA-Badge/',
@@ -56,7 +56,7 @@ export const DEV_DATA: Project[] = [
   {
     id: 'dev3',
     common: {
-      category: 'Development',
+      category: Category.DEV,
       image: '', // Placeholder
       icon: 'file-text',
       websiteUrl: 'https://lun3cy.github.io/Md2Design/',
@@ -82,7 +82,7 @@ export const DEV_DATA: Project[] = [
   {
     id: 'dev4',
     common: {
-      category: 'Development',
+      category: Category.DEV,
       image: '', // Placeholder
       icon: 'film',
       websiteUrl: 'https://lun3cy.github.io/CineViz/',

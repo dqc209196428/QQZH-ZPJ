@@ -1,10 +1,10 @@
-import { Project } from '../../types';
+import { Project, Category } from '../../types';
 
 export const DESIGN_DATA: Project[] = [
   {
     id: 'photo-copy',
     common: {
-      category: 'Graphics & UI',
+      category: Category.DESIGN,
       image: '/images/YGSZY.webp',
     },
     zh: {
@@ -18,14 +18,14 @@ export const DESIGN_DATA: Project[] = [
       roleDetail: "全包"
     },
     en: {
-      title: 'LJA Corridor End',
-      subtitle: 'Snapshot',
-      description: 'Taken on a windy evening.',
+      title: 'Menu Four-Fold Design',
+      subtitle: 'Desserts',
+      description: 'First time doing menu fold design.',
       role: '',
       tags: [],
-      awards: ["School"],
+      awards: ["Xiaohongshu"],
       concept: "",
-      roleDetail: "2026-04-16"
+      roleDetail: "All inclusive"
     }
   }
 ];
