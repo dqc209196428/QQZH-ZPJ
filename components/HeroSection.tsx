@@ -16,7 +16,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onCategory
   const content = HOME_DATA[language];
   const contactContent = CONTACT_DATA[language];
   const tooltipText = contactContent.tooltip || (language === 'zh' 
-    ? '还是想念武汉，但感觉之后可能也留在广深' 
+    ? '喵喵喵' 
     : 'Still miss Wuhan, but likely to stay in Guangzhou-Shenzhen later.');
   const heroItems = content.heroItems || [];
   const [showToast, setShowToast] = useState(false);

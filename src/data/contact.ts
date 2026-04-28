@@ -24,10 +24,10 @@ export interface ContactContent {
 export const CONTACT_DATA: Record<Language, ContactContent> = {
   zh: {
     baseLabel: "BASE",
-    locationValue: "Your City, Country",
+    locationValue: "China, Sichuan",
     contactLabel: "取得联系",
     emailMeLabel: "邮箱",
-    email: "your.email@example.com",
+    email: "209196428@qq.com",
     hello: "你好 ;-)",
     intro: "欢迎探讨与合作。",
     socials: {
@@ -37,14 +37,14 @@ export const CONTACT_DATA: Record<Language, ContactContent> = {
       px500: "YourID"
     },
     githubLabel: "GitHub",
-    footerDesign: "Powered by Gemini 3 Pro"
+    footerDesign: "感谢b站大佬『LuN3cy』提供的源码"
   },
   en: {
     baseLabel: "BASE",
     locationValue: "Your City, Country",
     contactLabel: "Get in touch",
     emailMeLabel: "Email Me",
-    email: "your.email@example.com",
+    email: "209196428@qq.com",
     hello: "Hello ;-)",
     intro: "Welcome to discuss & cooperate.",
     socials: {

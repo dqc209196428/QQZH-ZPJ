@@ -58,22 +58,23 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
 
   // Get Categories in preferred order
   const currentProjects = PROJECTS[language];
-  const preferredOrder = [
-    Category.PHOTO,
-    Category.VIDEO,
-    Category.DESIGN,
-    Category.DEV
-  ];
   
-  const availableCategories = preferredOrder.filter(cat => 
-    currentProjects.some(p => p.category === cat) || cat === Category.DEV
+  const hasPhotoOrVideo = currentProjects.some(p => 
+    p.category === Category.PHOTO || p.category === Category.VIDEO
   );
   
-  const categories = ['All', ...availableCategories];
+  const hasDesign = currentProjects.some(p => p.category === Category.DESIGN);
+  
+  const categories = ['All'];
+  if (hasPhotoOrVideo) categories.push('Photography');
+  if (hasDesign) categories.push(Category.DESIGN);
+  categories.push(Category.DEV);
 
   const filteredProjects = filter === 'All' 
     ? currentProjects 
-    : currentProjects.filter(p => p.category === filter);
+    : filter === 'Photography'
+      ? currentProjects.filter(p => p.category === Category.PHOTO || p.category === Category.VIDEO)
+      : currentProjects.filter(p => p.category === filter);
 
   // Handle Modal Render State for Animation
   useEffect(() => {
@@ -214,7 +215,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
                           loading="lazy"
                           decoding="async"
                           referrerPolicy="no-referrer"
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
+                          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105 will-change-transform"
                         />
                     ) : project.bilibiliId ? (
                         <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 group-hover:bg-gray-200 dark:group-hover:bg-gray-700 transition-colors duration-300">
@@ -398,7 +399,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
                         w-full bg-gray-200 dark:bg-gray-800 relative group-modal-media shrink-0
                         ${(displayProject.figmaUrl || displayProject.websiteUrl) ? 'h-[60vh] md:h-[80vh]' : 
                           (displayProject.videoUrl || displayProject.bilibiliId) ? 'aspect-video' : 
-                          'h-[30vh] md:h-[50vh]'}
+                          ''}
                      `}>
                         {displayProject.videoUrl ? (
                            <video 
@@ -439,7 +440,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
                                     src={displayProject.image} 
                                     alt={displayProject.title} 
                                     referrerPolicy="no-referrer"
-                                    className="w-full h-full object-cover" 
+                                    className="w-full h-full object-cover object-center" 
                                   />
                               ) : (
                                   <div className="w-full h-full flex items-center justify-center bg-gray-300 dark:bg-gray-800">
@@ -491,12 +492,12 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
                          )}
 
                          {/* Right Col: Details */}
-                         <div className="space-y-10">
+                         <div className="flex flex-col md:flex-row gap-8 items-start">
                             {/* Awards - Aligned Star */}
                             {displayProject.awards && displayProject.awards.length > 0 && (
-                                <div className="space-y-4">
+                                <div className="space-y-4 flex-1 min-w-[200px]">
                                   <h4 className="text-base font-bold uppercase text-gray-400 dark:text-gray-500 tracking-wider">
-                                    {language === 'zh' ? '获奖情况' : 'Awards & Recognition'}
+                                    {language === 'zh' ? '灵感来源' : 'Inspiration'}
                                   </h4>
                                   <ul className="space-y-3">
                                         {displayProject.awards.map((award, i) => {
@@ -513,29 +514,39 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
                             )}
 
                             {/* Role, Tags, Links - Flex Row */}
-                            <div className="flex flex-col md:flex-row gap-8 items-start">
+                            <div className="flex flex-col md:flex-row gap-8 items-start flex-1">
                                 {/* Role */}
-                                <div className="space-y-4 flex-1 min-w-[200px]">
-                                    <h4 className="text-base font-bold uppercase text-gray-400 dark:text-gray-500 tracking-wider">
-                                        {language === 'zh' ? '分工与职责' : 'Role & Responsibility'}
-                                    </h4>
-                                    <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
-                                        <span className="font-bold text-black dark:text-white block mb-1 text-lg">{displayProject.role}</span>
-                                        {displayProject.roleDetail}
-                                    </p>
-                                </div>
+                                {(displayProject.role || displayProject.roleDetail) && (
+                                    <div className="space-y-4 flex-1 min-w-[200px]">
+                                        <h4 className="text-base font-bold uppercase text-gray-400 dark:text-gray-500 tracking-wider">
+                                            {language === 'zh' 
+                                              ? (displayProject.category === Category.PHOTO || displayProject.category === Category.VIDEO 
+                                                ? '拍摄时间' 
+                                                : '分工与职责') 
+                                              : 'Role & Responsibility'}
+                                        </h4>
+                                        <ul className="space-y-3">
+                                            <li className="flex items-baseline font-bold text-xl text-black dark:text-white">
+                                                <span className="mr-3 text-lg flex-shrink-0 text-yellow-500">★</span>
+                                                <span>{displayProject.roleDetail || displayProject.role}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                )}
 
                                 {/* Tags */}
-                                <div className="space-y-4 flex-1 min-w-[200px]">
-                                    <h4 className="text-base font-bold uppercase text-gray-400 dark:text-gray-500 tracking-wider">Tags</h4>
-                                    <div className="flex flex-wrap gap-2">
-                                        {displayProject.tags.map(tag => (
-                                            <span key={tag} className="text-xs font-bold font-mono text-gray-500 border border-gray-300 dark:border-gray-700 px-3 py-1.5 rounded-lg">
-                                                {tag}
-                                            </span>
-                                        ))}
+                                {displayProject.tags && displayProject.tags.length > 0 && (
+                                    <div className="space-y-4 flex-1 min-w-[200px]">
+                                        <h4 className="text-base font-bold uppercase text-gray-400 dark:text-gray-500 tracking-wider">Tags</h4>
+                                        <div className="flex flex-wrap gap-2">
+                                                {displayProject.tags.map(tag => (
+                                                <span key={tag} className="text-xs font-bold font-mono text-gray-500 border border-gray-300 dark:border-gray-700 px-3 py-1.5 rounded-lg">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
+                                )}
 
                                 {/* Links */}
                                 {(displayProject.githubUrl || displayProject.websiteUrl) && (

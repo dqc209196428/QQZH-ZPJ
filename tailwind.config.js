@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"OPPO Sans"', 'Inter', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+        sans: ['"Noto Sans SC"', 'Inter', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
       },
       colors: {
         primary: '#000000',

@@ -16,12 +16,12 @@ export interface HomeContent {
 export const HOME_DATA: Record<Language, HomeContent> = {
   zh: {
     heroItems: [
-      { text: "摄影摄像", annotation: "（作品积累较多）", category: Category.VIDEO }, // category is kept as VIDEO but UI will split
-      { text: "平面交互", annotation: "（当前主攻，兴趣所在）", category: Category.DESIGN },
-      { text: "应用开发", annotation: "（vibe builder）", category: Category.DEV },
-      { text: "炒粉炒饭", annotation: "（还在学）", category: null }
+      { text: "摄影摄像", annotation: "（随拍）", category: Category.VIDEO }, // category is kept as VIDEO but UI will split
+      { text: "平面作业", annotation: "（当前主攻，兴趣所在）", category: Category.DESIGN },
+      { text: "应用开发", annotation: "（LuN3cy大佬制作）", category: Category.DEV },
+      { text: "炒粉炒饭", annotation: "（正在出餐）", category: null }
     ],
-    intro: "Your personal catchphrase or introduction goes here.",
+    intro: "应无所往 而生其心",
     selectedWorks: "精选作品",
     years: "[ 20XX — 20XX ]"
   },

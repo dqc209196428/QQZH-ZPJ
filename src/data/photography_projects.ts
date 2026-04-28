@@ -1,32 +1,31 @@
-import { Project } from '../../types';
+import { Project, Category } from '../../types';
 
 export const PHOTOGRAPHY_PROJECTS: Project[] = [
   {
-    id: 'sample-1',
+    id: 'd5-copy',
     common: {
-      category: 'Category Name',
-      image: 'https://via.placeholder.com/1920x1080?text=Project+Cover',
-      // bilibiliId: 'BVxxxxxxx' // For video
+      category: Category.VIDEO,
+      image: '/images/20260416.jpg',
     },
     zh: {
-      title: '示例项目标题',
-      subtitle: '示例副标题',
-      description: '项目描述占位符。',
-      role: '角色',
-      tags: ['标签1', '标签2'],
-      awards: [],
+      title: 'LJA楼道尽头',
+      subtitle: '随拍',
+      description: '晚上刮大风，随手拍的',
+      role: '',
+      tags: [],
+      awards: ["学校"],
       concept: "",
-      roleDetail: ""
+      roleDetail: "2026-04-16"
     },
     en: {
-      title: 'Example Project Title',
-      subtitle: 'Example Subtitle',
-      description: 'Project description placeholder.',
-      role: 'Role',
-      tags: ['Tag 1', 'Tag 2'],
-      awards: [],
-      concept: "",
-      roleDetail: ""
+      title: 'Infographic Design for Movie Information | Undergraduate Thesis',
+      subtitle: 'Visual Design System',
+      description: 'The infographic design project based on Cinemetrics, which mainly focuses on the content analysis and visualization of movies.',
+      role: 'ALL',
+      tags: ['Infographic', 'Cinemetrics', 'Figma'],
+      awards: ["None"],
+      concept: "Antique kraft paper design, new Chinese-style design.",
+      roleDetail: "Cover everything."
     }
   }
 ];

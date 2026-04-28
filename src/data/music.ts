@@ -20,10 +20,10 @@ export interface Song {
 export const MUSIC_PLAYLIST: Song[] = [
   {
     id: "local-01",
-    title: "Pirene's Fountain",
-    artist: "Vallès",
-    cover: "/music/covers/Pirene's Fountain Vallès.jpg", // 确保文件名对应
-    audio: "/music/audio/Vallès - Pirene's Fountain.mp3"     // 确保文件名对应
+    title: "Ghiblian Magic",
+    artist: "Studio Ghibli",
+    cover: "/music/covers/ghibli.jpg",
+    audio: "/music/audio/Ghiblian Magic-.flac"
   },
   {
     id: "local-02",

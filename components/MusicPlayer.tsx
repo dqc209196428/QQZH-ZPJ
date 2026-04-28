@@ -316,7 +316,7 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ initialVisible = false
 
       {/* Main Player or Floating Icon */}
       <div className="pointer-events-auto relative" ref={playerRef}>
-        <div className={`relative transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isOpen && !isClosing ? 'w-[320px] h-[385px] opacity-100' : 'w-12 h-12 opacity-100'}`}>
+        <div className={`relative transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isOpen && !isClosing ? 'w-[320px] h-[310px] opacity-100' : 'w-12 h-12 opacity-100'}`}>
           {!isOpen || isClosing ? (
             <button
               onClick={() => setIsOpen(true)}
@@ -437,29 +437,7 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ initialVisible = false
                 </div>
               </div>
 
-              {/* Playlist Promo - Floating at Bottom */}
-              <div className="relative z-10">
-                <a 
-                  href="https://music.163.com/playlist?id=74188173&uct2=U2FsdGVkX1+9hSmPKFKOu99/rqUgKMjig48CSYAF4Zs=" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block w-full"
-                >
-                  <div className="backdrop-blur-md bg-white/10 hover:bg-white/20 border border-white/10 rounded-2xl p-3 flex items-center justify-between group transition-all duration-300 hover:scale-[1.02] hover:shadow-lg cursor-pointer">
-                    <div className="flex flex-col">
-                      <span className="text-xs font-bold text-white/90 mb-0.5 drop-shadow-md">
-                        {language === 'zh' ? '品味不错？' : 'Nice taste?'}
-                      </span>
-                      <span className="text-[10px] text-white/70 font-medium group-hover:text-white/90 transition-colors">
-                        {language === 'zh' ? '我的歌单有更多好听的哦' : 'Check out my full playlist for more'}
-                      </span>
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                      <ExternalLink className="w-4 h-4 text-white/80" />
-                    </div>
-                  </div>
-                </a>
-              </div>
+
 
             </div>
           )}
