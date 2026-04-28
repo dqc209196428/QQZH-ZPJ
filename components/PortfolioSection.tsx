@@ -367,8 +367,8 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
                    <X size={24} className="text-black dark:text-white" />
                  </button>
 
-                 {displayProject.category === Category.PHOTO ? (
-                    // SPECIAL PHOTO LAYOUT
+                 {displayProject.category === Category.PHOTO && (displayProject.gallery || PHOTOGRAPHY_GALLERY[displayProject.id])?.length > 0 ? (
+                    // SPECIAL PHOTO LAYOUT WITH GALLERY
                     <div className="p-6 md:p-12 flex flex-col items-center min-h-full">
                         <h2 className="text-3xl md:text-5xl font-black text-black dark:text-white mb-4 text-center">
                             {displayProject.title}
@@ -393,12 +393,8 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language, ex
                                         />
                                     ))}
                                 </div>
-                            ) : (
-                                <div className="flex flex-col items-center justify-center h-64 w-full border-2 border-dashed border-gray-200 dark:border-gray-800 rounded-[2rem]">
-                                    <p className="text-gray-400 font-mono">No images found in local folder.</p>
-                                </div>
-                            );
-                        })()}
+                            ) : null
+                        })}
                     </div>
                  ) : (
                     // DEFAULT LAYOUT FOR OTHER CATEGORIES

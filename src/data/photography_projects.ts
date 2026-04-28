@@ -4,7 +4,7 @@ export const PHOTOGRAPHY_PROJECTS: Project[] = [
   {
     id: 'photo-lja',
     common: {
-      category: Category.DESIGN,
+      category: Category.PHOTO,
       image: '/images/20260416.webp',
     },
     zh: {
