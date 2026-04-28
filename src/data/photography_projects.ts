@@ -2,9 +2,9 @@ import { Project, Category } from '../../types';
 
 export const PHOTOGRAPHY_PROJECTS: Project[] = [
   {
-    id: 'p1',
+    id: 'photo-lja',
     common: {
-      category: Category.PHOTO,
+      category: Category.DESIGN,
       image: '/images/20260416.webp',
     },
     zh: {
